@@ -71,7 +71,7 @@ function Editor() {
         <CollaborationPlugin
           id="main"
           providerFactory={createWebsocketProvider}
-          shouldBootstrap={true}
+          shouldBootstrap={false}
         />
       </SharedHistoryContext>
     </LexicalComposer>

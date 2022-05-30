@@ -7,7 +7,6 @@
  */
 
  import { WebsocketProvider } from 'y-websocket';
- import * as yjs from 'yjs';
  import {Doc} from 'yjs';
  
  const url = new URL(window.location.href);
@@ -16,7 +15,6 @@
  const WEBSOCKET_SLUG = 'playground';
  const WEBSOCKET_ID = params.get('collabId') || '0';
  
- console.log(yjs)
 
  // parent dom -> child doc
  export function createWebsocketProvider(
