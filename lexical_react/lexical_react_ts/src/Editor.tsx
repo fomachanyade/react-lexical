@@ -6,12 +6,16 @@ import LexicalContentEditable from "@lexical/react/LexicalContentEditable";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import LexicalOnChangePlugin from "@lexical/react/LexicalOnChangePlugin";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
-import { CollaborationPlugin } from "@lexical/react/LexicalCollaborationPlugin";
+import {
+  CollaborationPlugin,
+  useCollaborationContext,
+} from "@lexical/react/LexicalCollaborationPlugin";
 import RichTextPlugin from "@lexical/react/LexicalRichTextPlugin";
 import ContentEditable from "@lexical/react/LexicalContentEditable";
 
 import { createWebsocketProvider } from "./collaboration";
 import { SharedHistoryContext } from "./context";
+import PlainTextPlugin from "@lexical/react/LexicalPlainTextPlugin";
 
 const theme = {
   ltr: "ltr",
@@ -23,12 +27,12 @@ const theme = {
 // When the editor changes, you can get notified via the
 // LexicalOnChangePlugin!
 function onChange(editorState) {
+  //   console.log(editorState);
+
   editorState.read(() => {
     // Read the contents of the EditorState here.
     const root = $getRoot();
     const selection = $getSelection();
-
-    console.log(root, selection);
   });
 }
 
@@ -54,6 +58,10 @@ function onError(error) {
   console.error(error);
 }
 
+const skipCollaborationInit =
+  // @ts-ignore
+  window.parent != null && window.parent.frames.right === window;
+
 function Editor() {
   const initialConfig = {
     theme,
@@ -63,16 +71,24 @@ function Editor() {
   return (
     <LexicalComposer initialConfig={initialConfig}>
       <SharedHistoryContext>
+        {/* <RichTextPlugin
+          contentEditable={<ContentEditable className="editor-input" />}
+          placeholder={<div>type here</div>}
+          initialEditorState={null}
+        /> */}
+
+        <CollaborationPlugin
+          id="main"
+          providerFactory={createWebsocketProvider}
+          shouldBootstrap={!skipCollaborationInit}
+        />
         <RichTextPlugin
           contentEditable={<ContentEditable className="editor-input" />}
           placeholder={<div>type here</div>}
           initialEditorState={null}
         />
-        <CollaborationPlugin
-          id="main"
-          providerFactory={createWebsocketProvider}
-          shouldBootstrap={false}
-        />
+
+        {/* <LexicalOnChangePlugin onChange={onChange} /> */}
       </SharedHistoryContext>
     </LexicalComposer>
   );

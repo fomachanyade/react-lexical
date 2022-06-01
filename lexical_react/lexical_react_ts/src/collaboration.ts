@@ -35,9 +35,10 @@
      WEBSOCKET_SLUG + '/' + WEBSOCKET_ID + '/' + id,
      doc,
      {
-       connect: true,
+       connect: false,
      },
    );
-   console.log("provider", provider)
+
+  
    return provider
  }

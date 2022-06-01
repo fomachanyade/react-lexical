@@ -41,7 +41,7 @@ export const DEFAULT_SETTINGS: Settings = {
   isAutocomplete: false,
   isCharLimit: false,
   isCharLimitUtf8: false,
-  isCollab: false,
+  isCollab: true,
   isMaxLength: false,
   isRichText: true,
   measureTypingPerf: false,
