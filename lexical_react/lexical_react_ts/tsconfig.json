@@ -7,18 +7,198 @@
     "downlevelIteration": true,
     "noEmit": true,
     "strict": false,
-    "esModuleInterop": true,
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "skipDefaultLibCheck": true,
-    "paths": {
-      "~/*": ["./*"],
-      "@/*": ["./*"]
-    },
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true
   },
-  "include": ["src"],
+  "paths": {
+    "lexical": ["../../lexical/packages/lexical/Lexical.d.ts"],
+    "@lexical/clipboard": [
+      "../../lexical/packages/lexical-clipboard/LexicalClipboard.d.ts"
+    ],
+    "@lexical/list": ["../../lexical/packages/lexical-list/LexicalList.d.ts"],
+    "@lexical/table": ["../../lexical/packages/lexical-table/LexicalTable.d.ts"],
+    "@lexical/file": ["../../lexical/packages/lexical-file/LexicalFile.d.ts"],
+    "@lexical/hashtag": ["../../lexical/packages/lexical-hashtag/LexicalHashtag.d.ts"],
+    "@lexical/selection": [
+      "../../lexical/packages/lexical-selection/LexicalSelection.d.ts"
+    ],
+    "@lexical/text": ["../../lexical/packages/lexical-text/LexicalText.d.ts"],
+    "@lexical/offset": ["../../lexical/packages/lexical-offset/LexicalOffset.d.ts"],
+    "@lexical/history": ["../../lexical/packages/lexical-history/LexicalHistory.d.ts"],
+    "@lexical/headless": ["../../lexical/packages/lexical-headless/LexicalHeadless.d.ts"],
+    "@lexical/html": ["../../lexical/packages/lexical-html/LexicalHtml.d.ts"],
+    "@lexical/utils": ["../../lexical/packages/lexical-utils/LexicalUtils.d.ts"],
+    "@lexical/code": ["../../lexical/packages/lexical-code/LexicalCode.d.ts"],
+    "@lexical/plain-text": [
+      "../../lexical/packages/lexical-plain-text/LexicalPlainText.d.ts"
+    ],
+    "@lexical/rich-text": [
+      "../../lexical/packages/lexical-rich-text/LexicalRichText.d.ts"
+    ],
+    "@lexical/dragon": ["../../lexical/packages/lexical-dragon/LexicalDragon.d.ts"],
+    "@lexical/link": ["../../lexical/packages/lexical-link/LexicalLink.d.ts"],
+    "@lexical/overflow": ["../../lexical/packages/lexical-overflow/LexicalOverflow.d.ts"],
+    "@lexical/markdown": ["../../lexical/packages/lexical-markdown/LexicalMarkdown.d.ts"],
+    "@lexical/mark": ["../../lexical/packages/lexical-mark/LexicalMark.d.ts"],
+
+    "@lexical/react/DEPRECATED_useLexicalEditor": [
+      "../../lexical/packages/lexical-react/src/DEPRECATED_useLexicalEditor.ts"
+    ],
+    "@lexical/react/DEPRECATED_useLexicalRichText": [
+      "../../lexical/packages/lexical-react/src/DEPRECATED_useLexicalRichText.ts"
+    ],
+    "@lexical/react/DEPRECATED_useLexicalPlainText": [
+      "../../lexical/packages/lexical-react/src/DEPRECATED_useLexicalPlainText.ts"
+    ],
+    "@lexical/react/DEPRECATED_useLexicalEditorEvents": [
+      "../../lexical/packages/lexical-react/src/DEPRECATED_useLexicalEditorEvents.ts"
+    ],
+    "@lexical/react/DEPRECATED_useLexicalAutoFormatter": [
+      "../../lexical/packages/lexical-react/src/DEPRECATED_useLexicalAutoFormatter.ts"
+    ],
+    "@lexical/react/DEPRECATED_useLexicalDecorators": [
+      "../../lexical/packages/lexical-react/src/DEPRECATED_useLexicalDecorators.ts"
+    ],
+    "@lexical/react/DEPRECATED_useLexicalList": [
+      "../../lexical/packages/lexical-react/src/DEPRECATED_useLexicalList.ts"
+    ],
+    "@lexical/react/DEPRECATED_useLexicalCanShowPlaceholder": [
+      "../../lexical/packages/lexical-react/src/DEPRECATED_useLexicalCanShowPlaceholder.ts"
+    ],
+    "@lexical/react/DEPRECATED_useLexicalCharacterLimit": [
+      "../../lexical/packages/lexical-react/src/DEPRECATED_useLexicalCharacterLimit.ts"
+    ],
+    "@lexical/react/DEPRECATED_useLexicalHistory": [
+      "../../lexical/packages/lexical-react/src/DEPRECATED_useLexicalHistory.ts"
+    ],
+
+    "@lexical/react/LexicalComposer": [
+      "../../lexical/packages/lexical-react/LexicalComposer.d.ts"
+    ],
+    "@lexical/react/LexicalComposerContext": [
+      "../../lexical/packages/lexical-react/LexicalComposerContext.d.ts"
+    ],
+    "@lexical/react/LexicalNestedComposer": [
+      "../../lexical/packages/lexical-react/LexicalNestedComposer.d.ts"
+    ],
+    "@lexical/react/LexicalContentEditable": [
+      "../../lexical/packages/lexical-react/LexicalContentEditable.d.ts"
+    ],
+    "@lexical/react/LexicalTreeView": [
+      "../../lexical/packages/lexical-react/LexicalTreeView.d.ts"
+    ],
+    "@lexical/react/LexicalHorizontalRuleNode": [
+      "../../lexical/packages/lexical-react/LexicalHorizontalRuleNode.d.ts"
+    ],
+    "@lexical/react/LexicalDecoratorBlockNode": [
+      "../../lexical/packages/lexical-react/LexicalDecoratorBlockNode.d.ts"
+    ],
+    "@lexical/react/LexicalBlockWithAlignableContents": [
+      "../../lexical/packages/lexical-react/LexicalBlockWithAlignableContents.d.ts"
+    ],
+    "@lexical/react/useLexicalIsTextContentEmpty": [
+      "../../lexical/packages/lexical-react/useLexicalIsTextContentEmpty.d.ts"
+    ],
+    "@lexical/react/useLexicalNodeSelection": [
+      "../../lexical/packages/lexical-react/useLexicalNodeSelection.d.ts"
+    ],
+    "@lexical/react/useLexicalTextEntity": [
+      "../../lexical/packages/lexical-react/useLexicalTextEntity.d.ts"
+    ],
+
+    "@lexical/react/LexicalPlainTextPlugin": [
+      "../../lexical/packages/lexical-react/LexicalPlainTextPlugin.d.ts"
+    ],
+    "@lexical/react/LexicalRichTextPlugin": [
+      "../../lexical/packages/lexical-react/LexicalRichTextPlugin.d.ts"
+    ],
+    "@lexical/react/LexicalHistoryPlugin": [
+      "../../lexical/packages/lexical-react/LexicalHistoryPlugin.d.ts"
+    ],
+    "@lexical/react/LexicalOnChangePlugin": [
+      "../../lexical/packages/lexical-react/LexicalOnChangePlugin.d.ts"
+    ],
+    "@lexical/react/LexicalHashtagPlugin": [
+      "../../lexical/packages/lexical-react/LexicalHashtagPlugin.d.ts"
+    ],
+    "@lexical/react/LexicalMarkdownShortcutPlugin": [
+      "../../lexical/packages/lexical-react/LexicalMarkdownShortcutPlugin.d.ts"
+    ],
+    "@lexical/react/LexicalAutoFocusPlugin": [
+      "../../lexical/packages/lexical-react/LexicalAutoFocusPlugin.d.ts"
+    ],
+    "@lexical/react/LexicalAutoFormatterPlugin": [
+      "../../lexical/packages/lexical-react/LexicalAutoFormatterPlugin.d.ts"
+    ],
+    "@lexical/react/LexicalCharacterLimitPlugin": [
+      "../../lexical/packages/lexical-react/LexicalCharacterLimitPlugin.d.ts"
+    ],
+    "@lexical/react/LexicalClearEditorPlugin": [
+      "../../lexical/packages/lexical-react/LexicalClearEditorPlugin.d.ts"
+    ],
+    "@lexical/react/LexicalCollaborationPlugin": [
+      "../../lexical/packages/lexical-react/LexicalCollaborationPlugin.d.ts"
+    ],
+    "@lexical/react/LexicalTablePlugin": [
+      "../../lexical/packages/lexical-react/LexicalTablePlugin.d.ts"
+    ],
+    "@lexical/react/LexicalLinkPlugin": [
+      "../../lexical/packages/lexical-react/LexicalLinkPlugin.d.ts"
+    ],
+    "@lexical/react/LexicalAutoLinkPlugin": [
+      "../../lexical/packages/lexical-react/LexicalAutoLinkPlugin.d.ts"
+    ],
+    "@lexical/react/LexicalListPlugin": [
+      "../../lexical/packages/lexical-react/LexicalListPlugin.d.ts"
+    ],
+    "@lexical/react/LexicalCheckListPlugin": [
+      "../../lexical/packages/lexical-react/LexicalCheckListPlugin.d.ts"
+    ],
+    "@lexical/react/LexicalAutoScrollPlugin": [
+      "../../lexical/packages/lexical-react/LexicalAutoScrollPlugin.d.ts"
+    ],
+
+    "@lexical/dragon/LexicalDragon": [
+      "../../lexical/packages/lexical-dragon/LexicalDragon.d.ts"
+    ],
+    "@lexical/history/LexicalHistory": [
+      "../../lexical/packages/lexical-history/LexicalHistory.d.ts"
+    ],
+    "@lexical/link/LexicalLink": ["../../lexical/packages/lexical-link/LexicalLink.d.ts"],
+    "@lexical/markdown/LexicalMarkdown": [
+      "../../lexical/packages/lexical-markdown/LexicalMarkdown.d.ts"
+    ],
+    "@lexical/headless/LexicalHeadless": [
+      "../../lexical/packages/lexical-markdown/LexicalHeadless.d.ts"
+    ],
+    "@lexical/offset/LexicalOffset": [
+      "../../lexical/packages/lexical-offset/LexicalOffset.d.ts"
+    ],
+    "@lexical/overflow/LexicalOverflow": [
+      "../../lexical/packages/lexical-overflow/LexicalOverflow.d.ts"
+    ],
+    "@lexical/plain-text/LexicalPlainText": [
+      "../../lexical/packages/lexical-plain-text/LexicalPlainText.d.ts"
+    ],
+    "@lexical/rich-text/LexicalRichText": [
+      "../../lexical/packages/lexical-rich-text/LexicalRichText.d.ts"
+    ],
+    "@lexical/selection/LexicalSelection": [
+      "../../lexical/packages/lexical-selection/LexicalSelection.d.ts"
+    ],
+    "@lexical/text/LexicalText": ["../../lexical/packages/lexical-text/LexicalText.d.ts"],
+    "@lexical/utils/LexicalUtils": [
+      "../../lexical/packages/lexical-utils/LexicalUtils.d.ts"
+    ],
+
+    "@lexical/yjs": ["../../lexical/packages/lexical-yjs/LexicalYjs.d.ts"],
+
+    "shared/canUseDOM": ["packages/shared/src/canUseDOM.ts"],
+    "shared/getDOMSelection": ["packages/shared/src/getDOMSelection.ts"],
+    "shared/simpleDiffWithCursor": [
+      "packages/shared/src/simpleDiffWithCursor.ts"
+    ],
+    "shared/invariant": ["packages/shared/src/invariant.ts"],
+    "shared/environment": ["packages/shared/src/environment.ts"],
+    "shared/useLayoutEffect": ["packages/shared/src/useLayoutEffect.ts"]
+  },
   "exclude": ["node_modules", "vendor"]
 }

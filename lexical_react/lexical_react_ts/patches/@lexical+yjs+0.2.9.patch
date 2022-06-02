@@ -1,0 +1,33 @@
+diff --git a/node_modules/@lexical/yjs/LexicalYjs.dev.js b/node_modules/@lexical/yjs/LexicalYjs.dev.js
+index 06ea337..42ae8dc 100644
+--- a/node_modules/@lexical/yjs/LexicalYjs.dev.js
++++ b/node_modules/@lexical/yjs/LexicalYjs.dev.js
+@@ -294,7 +294,7 @@ function getNodeTypeFromSharedType(sharedType) {
+ function getOrInitCollabNodeFromSharedType(binding, sharedType, parent) {
+   // $FlowFixMe: internal field
+   const collabNode = sharedType._collabNode;
+-
++  console.log('getOrInitCollabNodeFromSharedType', sharedType, collabNode);
+   if (collabNode === undefined) {
+     const registeredNodes = binding.editor._nodes;
+     const type = getNodeTypeFromSharedType(sharedType);
+@@ -1508,6 +1508,7 @@ function syncEvent(binding, event) {
+     target
+   } = event;
+   const collabNode = getOrInitCollabNodeFromSharedType(binding, target);
++  console.log('syncEvent:collabNode', collabNode)
+ 
+   if (collabNode instanceof CollabElementNode && event instanceof yjs.YTextEvent) {
+     const {
+@@ -1552,8 +1553,11 @@ function syncYjsChangesToLexical(binding, provider, events) {
+     // $FlowFixMe: this is always true
+     const pendingEditorState = editor._pendingEditorState;
+ 
++    // console.log('pendingEditorState', pendingEditorState)
+     for (let i = 0; i < events.length; i++) {
+       const event = events[i];
++      // console.log('binding', binding)
++
+       syncEvent(binding, event);
+     }
+ 

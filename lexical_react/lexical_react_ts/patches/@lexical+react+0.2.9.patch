@@ -1,0 +1,24 @@
+diff --git a/node_modules/@lexical/react/LexicalCollaborationPlugin.dev.js b/node_modules/@lexical/react/LexicalCollaborationPlugin.dev.js
+index 9fc28c5..ad9e86f 100644
+--- a/node_modules/@lexical/react/LexicalCollaborationPlugin.dev.js
++++ b/node_modules/@lexical/react/LexicalCollaborationPlugin.dev.js
+@@ -61,6 +61,7 @@ function useYjsCollaboration(editor, id, provider, docMap, name, color, shouldBo
+     };
+ 
+     const onYjsTreeChanges = (events, transaction) => {
++      console.log('onYjsTreeChanges:binding')
+       if (transaction.origin !== binding) {
+         yjs.syncYjsChangesToLexical(binding, provider, events);
+       }
+diff --git a/node_modules/@lexical/react/LexicalCollaborationPlugin.js b/node_modules/@lexical/react/LexicalCollaborationPlugin.js
+index 8b1225c..394348b 100644
+--- a/node_modules/@lexical/react/LexicalCollaborationPlugin.js
++++ b/node_modules/@lexical/react/LexicalCollaborationPlugin.js
+@@ -5,5 +5,5 @@
+  * LICENSE file in the root directory of this source tree.
+  */
+ 'use strict'
+-const LexicalCollaborationPlugin = process.env.NODE_ENV === 'development' ? require('./LexicalCollaborationPlugin.dev.js') : require('./LexicalCollaborationPlugin.prod.js')
++const LexicalCollaborationPlugin = require('./LexicalCollaborationPlugin.prod.js')
+ module.exports = LexicalCollaborationPlugin;
+\ No newline at end of file

@@ -9,7 +9,7 @@ import {
   CollaborationPlugin,
   useCollaborationContext,
 } from "@lexical/react/LexicalCollaborationPlugin";
-import LexicalComposer from "@lexical/react/LexicalComposer";
+import{ LexicalComposer} from "@lexical/react/LexicalComposer";
 
 export type AppPropsType = {};
 

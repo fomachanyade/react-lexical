@@ -1,21 +1,14 @@
 import React, { FunctionComponent, useEffect } from "react";
 import { $getRoot, $getSelection, EditorState } from "lexical";
-import LexicalComposer from "@lexical/react/LexicalComposer";
-import LexicalPlainTextPlugin from "@lexical/react/LexicalPlainTextPlugin";
-import LexicalContentEditable from "@lexical/react/LexicalContentEditable";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
-import LexicalOnChangePlugin from "@lexical/react/LexicalOnChangePlugin";
-import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import {
   CollaborationPlugin,
-  useCollaborationContext,
 } from "@lexical/react/LexicalCollaborationPlugin";
-import RichTextPlugin from "@lexical/react/LexicalRichTextPlugin";
-import ContentEditable from "@lexical/react/LexicalContentEditable";
+import {RichTextPlugin} from "@lexical/react/LexicalRichTextPlugin";
+import{ ContentEditable }from "@lexical/react/LexicalContentEditable";
 
 import { createWebsocketProvider } from "./collaboration";
 import { SharedHistoryContext, useSharedHistoryContext } from "./context";
-import PlainTextPlugin from "@lexical/react/LexicalPlainTextPlugin";
 
 const skipCollaborationInit =
   // @ts-ignore
@@ -27,7 +20,7 @@ function onChange(editorState: EditorState) {
     const root = $getRoot();
     const selection = $getSelection();
 
-    console.log(root, selection);
+    // console.log(root, selection);
   });
 }
 
@@ -43,6 +36,7 @@ function Editor() {
           id="main"
           providerFactory={createWebsocketProvider}
           shouldBootstrap={!skipCollaborationInit}
+          username='高谷誉27歳独身'
         />
       ) : (
         <HistoryPlugin externalHistoryState={historyState} />
@@ -52,7 +46,6 @@ function Editor() {
         placeholder={<div>type here</div>}
         initialEditorState={null}
       />
-      <LexicalOnChangePlugin onChange={onChange} />
     </div>
   );
 }
