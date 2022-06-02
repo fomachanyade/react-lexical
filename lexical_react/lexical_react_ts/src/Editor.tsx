@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useEffect } from "react";
-import { $getRoot, $getSelection } from "lexical";
+import { $getRoot, $getSelection, EditorState } from "lexical";
 import LexicalComposer from "@lexical/react/LexicalComposer";
 import LexicalPlainTextPlugin from "@lexical/react/LexicalPlainTextPlugin";
 import LexicalContentEditable from "@lexical/react/LexicalContentEditable";
@@ -14,83 +14,46 @@ import RichTextPlugin from "@lexical/react/LexicalRichTextPlugin";
 import ContentEditable from "@lexical/react/LexicalContentEditable";
 
 import { createWebsocketProvider } from "./collaboration";
-import { SharedHistoryContext } from "./context";
+import { SharedHistoryContext, useSharedHistoryContext } from "./context";
 import PlainTextPlugin from "@lexical/react/LexicalPlainTextPlugin";
-
-const theme = {
-  ltr: "ltr",
-  rtl: "rtl",
-  placeholder: "editor-placeholder",
-  paragraph: "editor-paragraph",
-};
-
-// When the editor changes, you can get notified via the
-// LexicalOnChangePlugin!
-function onChange(editorState) {
-  //   console.log(editorState);
-
-  editorState.read(() => {
-    // Read the contents of the EditorState here.
-    const root = $getRoot();
-    const selection = $getSelection();
-  });
-}
-
-// Lexical React plugins are React components, which makes them
-// highly composable. Furthermore, you can lazy load plugins if
-// desired, so you don't pay the cost for plugins until you
-// actually use them.
-function MyCustomAutoFocusPlugin() {
-  const [editor] = useLexicalComposerContext();
-
-  useEffect(() => {
-    // Focus the editor when the effect fires!
-    editor.focus();
-  }, [editor]);
-
-  return null;
-}
-
-// Catch any errors that occur during Lexical updates and log them
-// or throw them as needed. If you don't throw them, Lexical will
-// try to recover gracefully without losing user data.
-function onError(error) {
-  console.error(error);
-}
 
 const skipCollaborationInit =
   // @ts-ignore
   window.parent != null && window.parent.frames.right === window;
 
+function onChange(editorState: EditorState) {
+  editorState.read(() => {
+    // Read the contents of the EditorState here.
+    const root = $getRoot();
+    const selection = $getSelection();
+
+    console.log(root, selection);
+  });
+}
+
 function Editor() {
-  const initialConfig = {
-    theme,
-    onError,
-  };
+  const { historyState } = useSharedHistoryContext();
+
+  const isCollab = true;
 
   return (
-    <LexicalComposer initialConfig={initialConfig}>
-      <SharedHistoryContext>
-        {/* <RichTextPlugin
-          contentEditable={<ContentEditable className="editor-input" />}
-          placeholder={<div>type here</div>}
-          initialEditorState={null}
-        /> */}
-
+    <div className="editor-container">
+      {isCollab ? (
         <CollaborationPlugin
           id="main"
           providerFactory={createWebsocketProvider}
           shouldBootstrap={!skipCollaborationInit}
         />
-        <RichTextPlugin
-          contentEditable={<ContentEditable className="editor-input" />}
-          placeholder={<div>type here</div>}
-          initialEditorState={null}
-        />
-
-        {/* <LexicalOnChangePlugin onChange={onChange} /> */}
-      </SharedHistoryContext>
-    </LexicalComposer>
+      ) : (
+        <HistoryPlugin externalHistoryState={historyState} />
+      )}
+      <RichTextPlugin
+        contentEditable={<ContentEditable className="editor-input" />}
+        placeholder={<div>type here</div>}
+        initialEditorState={null}
+      />
+      <LexicalOnChangePlugin onChange={onChange} />
+    </div>
   );
 }
 
